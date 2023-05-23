@@ -1,0 +1,85 @@
+<p>Maps View</p>
+<div class="container">
+  <div class="row row-1">
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="datepicker"
+          placeholder="Choose a date"
+          (dateChange)="dateChanged($event)"
+          [(ngModel)]="fullDate"
+          name="fullDate"
+        >
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker></mat-datepicker>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="row row-2">
+    <div *ngIf="apiLoaded | async" id="gMap">
+      <google-map
+        height="450px"
+        width="100%"
+        [options]="mapOptions"
+        [center]="mapCenter">
+          <map-marker #markerElem
+            *ngFor="let marker of markers"
+            [position]="marker.position"
+            [options]="marker.options">
+            <map-polyline [path]="vertices"></map-polyline>
+      </map-marker>
+    
+      </google-map>
+    </div>
+  </div>
+</div>
+<!-- <form>
+
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="datepicker"
+      placeholder="Choose a date"
+      (dateChange)="dateChanged($event)"
+      [(ngModel)]="fullDate"
+      name="fullDate"
+    >
+    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker></mat-datepicker> -->
+  <!-- </mat-form-field> -->
+
+  <!-- <mat-form-field>
+    <mat-label>Year</mat-label>
+    <input matInput type="text" placeholder="Enter year" [(ngModel)]="year">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Month</mat-label>
+    <input matInput type="text" placeholder="Enter month" [(ngModel)]="month">
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Day</mat-label>
+    <input matInput type="text" placeholder="Enter day" [(ngModel)]="day">
+  </mat-form-field>
+  
+  <mat-checkbox [(ngModel)]="isSent">Sent</mat-checkbox>
+  <mat-checkbox [(ngModel)]="isReceived">Received</mat-checkbox>
+  
+  <button mat-raised-button color="primary">Submit</button> -->
+<!-- </form> -->
+  
+  
+
+<!-- <div style="height: 500px;"
+    leaflet
+    [leafletOptions]="options"
+    [leafletLayers]="layers"
+    [leafletFitBounds]="fitBounds"
+    (leafletMapReady)="onMapReady($event)"
+></div> -->
+<!-- 
+<div *ngIf="apiLoaded | async">
+  <google-map></google-map>
+</div> -->

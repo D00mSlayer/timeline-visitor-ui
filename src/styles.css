@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+.navbar-left {
+    margin-left: 10px;
+}
+
+.navbar-right {
+    margin-right: 10px;
+}
+
+.navbar-right a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #333;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+path.leaflet-interactive.animate {
+    stroke-dasharray: 1920;
+    stroke-dashoffset: 1920;
+    animation: dash 20s linear 3s forwards;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
