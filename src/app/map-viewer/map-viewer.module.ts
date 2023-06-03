@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MapViewerComponent } from './map-viewer.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
@@ -26,7 +25,6 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    LeafletModule,
     GoogleMapsModule,
     HttpClientModule,
     HttpClientJsonpModule,
