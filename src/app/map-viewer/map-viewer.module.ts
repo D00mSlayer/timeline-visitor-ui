@@ -12,10 +12,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
-    MapViewerComponent
+    MapViewerComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +34,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule,
+    MatChipsModule,
+    MatSelectModule
   ],
   exports: [
     MapViewerComponent

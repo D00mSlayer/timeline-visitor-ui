@@ -3,6 +3,15 @@
   <div class="row row-1">
     <form>
       <mat-form-field>
+        <mat-label>User</mat-label>
+        <mat-select [(value)]="selectedUserId">
+          <mat-option *ngFor="let user of users" [value]="user.user_id">
+            {{user.username}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
         <input
           matInput
           [matDatepicker]="datepicker"
@@ -14,72 +23,20 @@
         <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
         <mat-datepicker #datepicker></mat-datepicker>
       </mat-form-field>
+      <!-- <mat-radio-group aria-label="Select an option" [(ngModel)]="paymentType" [ngModelOptions]="{standalone: true}">
+        <mat-radio-button value="S">Sent</mat-radio-button>
+        <mat-radio-button value="R">Received</mat-radio-button>
+        <mat-radio-button value="A">All</mat-radio-button>
+      </mat-radio-group> -->
+
+      <mat-chip-listbox aria-label="Select payment type" [(ngModel)]="paymentType" [ngModelOptions]="{standalone: true}">
+        <mat-chip-option value="S">Sent</mat-chip-option>
+        <mat-chip-option value="R">Received</mat-chip-option>
+        <mat-chip-option value="A">All</mat-chip-option>
+      </mat-chip-listbox>
     </form>
   </div>
   <div class="row row-2">
-    <div *ngIf="apiLoaded | async" id="gMap">
-      <google-map
-        height="450px"
-        width="100%"
-        [options]="mapOptions"
-        [center]="mapCenter">
-          <map-marker #markerElem
-            *ngFor="let marker of markers"
-            [position]="marker.position"
-            [options]="marker.options">
-            <map-polyline [path]="vertices"></map-polyline>
-      </map-marker>
-    
-      </google-map>
-    </div>
+    <div id="map" style="width: 100%; height: 400px;"></div>
   </div>
 </div>
-<!-- <form>
-
-  <mat-form-field>
-    <input
-      matInput
-      [matDatepicker]="datepicker"
-      placeholder="Choose a date"
-      (dateChange)="dateChanged($event)"
-      [(ngModel)]="fullDate"
-      name="fullDate"
-    >
-    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-    <mat-datepicker #datepicker></mat-datepicker> -->
-  <!-- </mat-form-field> -->
-
-  <!-- <mat-form-field>
-    <mat-label>Year</mat-label>
-    <input matInput type="text" placeholder="Enter year" [(ngModel)]="year">
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Month</mat-label>
-    <input matInput type="text" placeholder="Enter month" [(ngModel)]="month">
-  </mat-form-field>
-  
-  <mat-form-field>
-    <mat-label>Day</mat-label>
-    <input matInput type="text" placeholder="Enter day" [(ngModel)]="day">
-  </mat-form-field>
-  
-  <mat-checkbox [(ngModel)]="isSent">Sent</mat-checkbox>
-  <mat-checkbox [(ngModel)]="isReceived">Received</mat-checkbox>
-  
-  <button mat-raised-button color="primary">Submit</button> -->
-<!-- </form> -->
-  
-  
-
-<!-- <div style="height: 500px;"
-    leaflet
-    [leafletOptions]="options"
-    [leafletLayers]="layers"
-    [leafletFitBounds]="fitBounds"
-    (leafletMapReady)="onMapReady($event)"
-></div> -->
-<!-- 
-<div *ngIf="apiLoaded | async">
-  <google-map></google-map>
-</div> -->
